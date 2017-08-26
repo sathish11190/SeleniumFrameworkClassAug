@@ -1,5 +1,8 @@
 package base;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -138,6 +141,11 @@ public class ListenerImplemention implements WebDriverEventListener {
 
 		case "NoSuchElementException":
 			System.out.println("No Sch Elemtn Exep");
+			/*errorText=(throwable.getMessage());
+			String s2[]=new String[100];
+			s2=errorText.split({);
+			
+			System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Splited Text"+s2.length);*/
 			break;
 		case "NoSuchWindowException":
 			System.out.println("");

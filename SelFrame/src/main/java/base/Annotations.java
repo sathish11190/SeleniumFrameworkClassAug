@@ -1,5 +1,8 @@
 package base;
 
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterGroups;
 import org.testng.annotations.AfterMethod;
@@ -12,7 +15,12 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 
+import dataProvider.ExcelDataProvider;
+
+
 public class Annotations extends WdMethods {
+	
+	public String excelName;
 	@BeforeSuite
 	public void beforeSuite(){
 		System.out.println("Before Suite");
@@ -26,11 +34,7 @@ public class Annotations extends WdMethods {
 		System.out.println("Before Group");
 		
 	}
-	@BeforeClass
-	public void beforeClass(){
-		System.out.println("Before Class");
-		
-	}
+	
 	@BeforeMethod
 	public void beforeMethod(){
 		invokeApp("chrome");
@@ -58,16 +62,19 @@ public class Annotations extends WdMethods {
 		System.out.println("After Suite");
 	}
 	
-	@DataProvider(name="getHardCodedData")
-	public String[][] data(){
+	@DataProvider(name="getExcelData")
+	public Object[][] data() throws InvalidFormatException, IOException{
+	
+	
 		
-		String data[][]=new String[2][2];
+		return ExcelDataProvider.getDataFromExcelSheet("./data/"+excelName+".xlsx");
+		
+		/*String data[][]=new String[2][2];
 		data[0][0]="DemoSalesManager";
 		data[1][0]="crmsfa";
 		data[1][0]="DemoSalesManager";
-		data[1][1]="crmsfa";
+		data[1][1]="crmsfa";*/
 		
-		return data;
 		
 		
 	}

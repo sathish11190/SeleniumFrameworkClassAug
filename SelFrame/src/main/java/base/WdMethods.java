@@ -123,9 +123,10 @@ public class WdMethods extends ListenerImplemention{
 		Assert.assertEquals(actualTitle, expectedTitle, "Title did not match");
 	}
 
-	public void getText(WebElement ele){
+	public String getText(WebElement ele){
 		String text=ele.getText();
 		System.out.println("Lead ID" +text);
+		return text;
 	}
 
 	public void verifyText(WebElement ele,String expectedText){
