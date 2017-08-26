@@ -135,7 +135,7 @@ public class WdMethods extends ListenerImplemention{
 
 	}
 
-	public void invokeApp(String browser){
+	public void invokeApp(String browser,String URL){
 
 		switch(browser){
 		case "chrome":
@@ -159,7 +159,7 @@ public class WdMethods extends ListenerImplemention{
 		eventDriver=new EventFiringWebDriver(driver);
 		ListenerImplemention handler=new ListenerImplemention();
 		eventDriver.register(handler);
-		eventDriver.get("http://leaftaps.com/opentaps/control/main");
+		eventDriver.get(URL);
 		eventDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 	}

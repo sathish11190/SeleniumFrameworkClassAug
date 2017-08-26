@@ -1,9 +1,11 @@
 package pageTests;
 
+import org.openqa.selenium.Platform;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.Annotations;
+import pageFactory.HomePage;
 import pageFactory.LoginPage;
 
 public class CreateLeadTestCase extends Annotations {
@@ -12,19 +14,18 @@ public class CreateLeadTestCase extends Annotations {
 	public void beforeClass(){
 		System.out.println("Before Class");
 		excelName="CreateLead";
+		browser="chrome";
+		platform=Platform.WIN10;
+		version="59.0";
 	}
 	
 
 
 	@Test(dataProvider="getExcelData")
-	public void createLead(String userName,String pwd,String cmpName,String fName,String lName,String source,String mktCampaign,String phoneNumber,
-
+	public void createLead(String cmpName,String fName,String lName,String source,String mktCampaign,String phoneNumber,
 			String eMail){
 
-		new LoginPage()
-		.enterUserName(userName)
-		.enterPassword(pwd)
-		.clickLoginBtn()
+		new HomePage()
 		.clickCRMSFA()
 		.clickCreateLeadLnk()
 		.enterCompanyName(cmpName)

@@ -1,6 +1,7 @@
 package dataProvider;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -14,7 +15,7 @@ public class ExcelDataProvider extends AbstractDataProvider {
 		Object data[][] = null,cellValue = null;
 		System.out.println("HHHHHHHHHHHHHHHHHHHHH");
 		int rowCount,columnCount;
-		File fs=new File(excelPath);
+		FileInputStream fs=new FileInputStream(new File(excelPath));
 		@SuppressWarnings("resource")
 		XSSFWorkbook wBook=new XSSFWorkbook(fs);
 		XSSFSheet sheet=wBook.getSheetAt(0);
@@ -35,14 +36,10 @@ public class ExcelDataProvider extends AbstractDataProvider {
 				else if(cellType==1){
 					cellValue=row.getCell(j).getStringCellValue();
 				}
-
-
-
 				data[i-1][j]=cellValue;
 				//	System.out.print(data[i][j]);
 			}
 			//	System.out.println();
-
 		}
 		return data;
 	}

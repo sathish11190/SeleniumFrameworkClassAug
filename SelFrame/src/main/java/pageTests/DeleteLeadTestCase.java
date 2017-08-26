@@ -7,7 +7,7 @@ import pageFactory.LoginPage;
 
 public class DeleteLeadTestCase extends Annotations {
 	@Test
-	public void createLead(){
+	public void deleteLead(){
 		
 		/*new LoginPage()
 		.enterUserName()
